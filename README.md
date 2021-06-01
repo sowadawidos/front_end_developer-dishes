@@ -3,7 +3,7 @@
 - SCSS
 - JavaScript (ES6)
 - React
-- NPM
+- npm
 
 # Available Scripts
 
