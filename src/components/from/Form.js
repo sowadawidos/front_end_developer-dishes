@@ -44,6 +44,8 @@ export const Form = () => {
                 console.log(error);
             });
 
+        alert("Form has been sent!")
+
         setInputs({
             id: '',
             name: '',
