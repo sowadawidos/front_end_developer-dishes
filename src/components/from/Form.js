@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import "./Form.scss"
 import {PizzaSelect} from "./PizzaSelect";
 import {SoupSelect} from "./SoupSelect";
@@ -20,8 +20,11 @@ export const Form = () => {
         spiciness: '',
         breadSlices: ''
     });
-
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        setErrors('');
+    }, [inputs])
 
     const handleInputs = e => {
         const {name, value} = e.target;
@@ -39,12 +42,10 @@ export const Form = () => {
                 "Content-Type": "application/json"
             }
         })
-            .then(response => response.json())
+            .then(response => alert("Form has been sent!"))
             .catch(error => {
                 console.log(error);
             });
-
-        alert("Form has been sent!")
 
         setInputs({
             id: '',
@@ -60,7 +61,7 @@ export const Form = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        setErrors('');
+
         if (!inputs.name) {
             setErrors(prev => [...prev, "name"])
         }
