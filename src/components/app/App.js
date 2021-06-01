@@ -1,6 +1,6 @@
 import './App.scss';
 import {Form} from "../from/Form";
-import React, { useState, useEffect } from "react"
+import React from "react"
 
 export const App = () => {
     return (

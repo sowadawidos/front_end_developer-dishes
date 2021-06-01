@@ -1,14 +1,9 @@
-import React, {useState} from "react"
+import React from "react"
 
-export const SoupSelect = ({handleSpiciness}) => {
-
-
-    const handleSpicines = e => {
-        handleSpiciness(e.target.value);
-    }
+export const SoupSelect = ({handleInputs, inputs}) => {
     return (
         <>
-            <input type="number" min="0" max="10" id="spiciness_scale" placeholder="Spiciness scale:" onChange={handleSpicines}/>
+            <input name="spiciness" type="number" min="0" max="10" id="spiciness_scale" placeholder="Spiciness scale:" onChange={e => handleInputs(e)} value={inputs.spiciness}/>
         </>
     )
 }

@@ -1,0 +1,46 @@
+{
+  "db": [
+    {
+      "name": "Fries",
+      "preparation_time": "20:11:04",
+      "soup": {
+        "spiciness": "5"
+      },
+      "id": 1
+    },
+    {
+      "name": "DASDASD",
+      "preparation_time": "21:12:05",
+      "sandwich": {
+        "breadSlices": "5"
+      },
+      "id": 2
+    },
+    {
+      "name": "Dawid",
+      "preparation_time": "20:13:47",
+      "soup": {
+        "spiciness": "5"
+      },
+      "id": 3
+    },
+    {
+      "name": "Pizza neapolitana",
+      "preparation_time": "00:12:04",
+      "pizza": {
+        "slices": "12",
+        "diameter": "40"
+      },
+      "id": 4
+    },
+    {
+      "name": "Pizzerka",
+      "preparation_time": "19:15:23",
+      "pizza": {
+        "slices": "55",
+        "diameter": "15"
+      },
+      "id": 5
+    }
+  ]
+}

@@ -15,6 +15,9 @@
     width: 400px;
     border-radius: 5px;
     border: 1px solid black;
+    &::placeholder {
+      color: black;
+    }
   }
   select {
     margin-bottom: 10px;
