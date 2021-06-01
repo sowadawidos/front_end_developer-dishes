@@ -1,0 +1,38 @@
+.form__title {
+  font-size: 36px;
+  font-weight: 700;
+  padding: 20px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  input {
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  select {
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+  button {
+    background-color: #343A40;
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 35px;
+    width: 60%;
+    margin-top: 10px;
+  }
+}

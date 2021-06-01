@@ -1,0 +1,10 @@
+.form__error {
+  margin-top: 20px;
+  list-style-type: none;
+  .form__error-list {
+    text-align: center;
+    padding: 5px;
+    color: red;
+    font-weight: 800;
+  }
+}
