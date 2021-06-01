@@ -4,6 +4,7 @@
 - JavaScript (ES6)
 - React
 - npm
+- RWD
 
 # Available Scripts
 
