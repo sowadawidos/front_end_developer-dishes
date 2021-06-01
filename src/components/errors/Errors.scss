@@ -1,10 +1,20 @@
 .form__error {
-  margin-top: 20px;
+  margin-top: 19px;
   list-style-type: none;
   .form__error-list {
     text-align: center;
     padding: 5px;
     color: red;
     font-weight: 800;
+  }
+}
+
+@media (max-width: 680px) {
+  .form__error {
+    margin-top: 10px;
+    .form__error-list {
+      font-size: 14px;
+      padding: 4px;
+    }
   }
 }

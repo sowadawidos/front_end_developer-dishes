@@ -5,6 +5,7 @@ import {SoupSelect} from "./SoupSelect";
 import {SandwichSelect} from "./SandwichSelect";
 import {Errors} from "../errors/Errors";
 import {fetch} from "whatwg-fetch";
+import {Button} from "../button/Button";
 
 const API = "https://frosty-wood-6558.getsandbox.com:443/dishes"
 
@@ -14,11 +15,11 @@ export const Form = () => {
         name: '',
         preparation_time: '',
         type: '',
-        slices: '',
+        no_of_slices: '',
         diameter: '',
         spiciness: '',
         breadSlices: ''
-    })
+    });
 
     const [errors, setErrors] = useState([]);
 
@@ -42,6 +43,17 @@ export const Form = () => {
             .catch(error => {
                 console.log(error);
             });
+
+        setInputs({
+            id: '',
+            name: '',
+            preparation_time: '',
+            type: '',
+            no_of_slices: '',
+            diameter: '',
+            spiciness: '',
+            breadSlices: ''
+        });
     }
 
     const handleSubmit = event => {
@@ -58,63 +70,53 @@ export const Form = () => {
         }
 
         if (inputs.type === "pizza") {
-            if (!inputs.slices) {
+            if (!inputs.no_of_slices) {
                 setErrors(prev => [...prev, "pizza slices"])
             }
             if (!inputs.diameter) {
                 setErrors(prev => [...prev, "pizza diameter"])
             }
-            const newPizza = {
-                name: inputs.name,
-                preparation_time: inputs.preparation_time,
-                pizza: {
-                    slices: inputs.slices,
-                    diameter: inputs.diameter
+            if (inputs.no_of_slices && inputs.diameter) {
+                const newPizza = {
+                    name: inputs.name,
+                    preparation_time: inputs.preparation_time,
+                    type: inputs.type,
+                    no_of_slices: parseInt(inputs.no_of_slices),
+                    diameter: parseFloat(inputs.diameter)
                 }
+                sendToServer(newPizza);
             }
-            sendToServer(newPizza);
         }
         if (inputs.type === "soup") {
             if (!inputs.spiciness) {
                 setErrors(prev => [...prev, "soup spiciness"])
-            }
-            const newSoup = {
-                name: inputs.name,
-                preparation_time: inputs.preparation_time,
-                soup: {
-                    spiciness: inputs.spiciness
+            } else {
+                const newSoup = {
+                    name: inputs.name,
+                    preparation_time: inputs.preparation_time,
+                    type: inputs.type,
+                    spiciness_scale: parseInt(inputs.spiciness)
                 }
+                sendToServer(newSoup);
             }
-            sendToServer(newSoup);
         }
         if (inputs.type === "sandwich") {
             if (!inputs.breadSlices) {
                 setErrors(prev => [...prev, "sandwich bread slices"])
-            }
-            const newSandwich = {
-                name: inputs.name,
-                preparation_time: inputs.preparation_time,
-                sandwich: {
-                    breadSlices: inputs.breadSlices
+            } else {
+                const newSandwich = {
+                    name: inputs.name,
+                    preparation_time: inputs.preparation_time,
+                    type: inputs.type,
+                    slices_of_bread: parseInt(inputs.breadSlices)
                 }
+                sendToServer(newSandwich);
             }
-            sendToServer(newSandwich);
         }
-        setInputs({
-            id: '',
-            name: '',
-            preparation_time: '',
-            type: '',
-            slices: '',
-            diameter: '',
-            spiciness: '',
-            breadSlices: ''
-        });
     }
 
     return (
         <>
-            <h1 className="form__title">Dishes</h1>
             <form onSubmit={handleSubmit} className="form">
                 <input type="text" value={inputs.name} name="name" onChange={handleInputs} placeholder="Name:"/>
                 <input type="time" value={inputs.preparation_time} name="preparation_time" onChange={handleInputs}
@@ -126,15 +128,15 @@ export const Form = () => {
                     <option value="sandwich">Sandwich</option>
                 </select>
                 {
-                    inputs.type === "pizza" ? <PizzaSelect handleInputs={handleInputs} inputs={inputs}/> : null
+                    inputs.type === "pizza" && <PizzaSelect handleInputs={handleInputs} inputs={inputs}/>
                 }
                 {
-                    inputs.type === "soup" ? <SoupSelect handleInputs={handleInputs} inputs={inputs}/> : null
+                    inputs.type === "soup" && <SoupSelect handleInputs={handleInputs} inputs={inputs}/>
                 }
                 {
-                    inputs.type === "sandwich" ? <SandwichSelect handleInputs={handleInputs} inputs={inputs}/> : null
+                    inputs.type === "sandwich" && <SandwichSelect handleInputs={handleInputs} inputs={inputs}/>
                 }
-                <button>Submit</button>
+                <Button/>
             </form>
             <Errors errors={errors}/>
         </>

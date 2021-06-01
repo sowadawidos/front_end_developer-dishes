@@ -1,0 +1,25 @@
+button {
+  background-color: #343A40;
+  padding: 10px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  border-radius: 35px;
+  width: 60%;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  &:focus {
+    outline: 1px dotted red;
+  }
+  &:hover {
+    box-shadow: 1px 4px 18px 2px #343A40;
+  }
+}
+
+@media (max-width: 440px){
+  button {
+    width: 40%;
+  }
+}

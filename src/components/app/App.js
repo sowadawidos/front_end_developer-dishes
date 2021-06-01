@@ -1,14 +1,12 @@
 import './App.scss';
-import {Form} from "../from/Form";
 import React from "react"
+import {Box} from "./Box";
 
 export const App = () => {
     return (
         <>
             <div className="main__page">
-                <div className="container">
-                    <Form/>
-                </div>
+                <Box/>
             </div>
         </>
     );
