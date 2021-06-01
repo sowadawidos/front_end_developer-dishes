@@ -122,7 +122,7 @@ export const Form = () => {
         <>
             <form onSubmit={handleSubmit} className="form">
                 <input type="text" value={inputs.name} name="name" onChange={handleInputs} placeholder="Name:"/>
-                <input type="time" value={inputs.preparation_time} name="preparation_time" onChange={handleInputs}
+                <input type="time" defaultValue={"00:00:00"} name="preparation_time" onChange={handleInputs}
                        placeholder="Preparation time:" step="1"/>
                 <select value={inputs.type} onChange={handleInputs} name="type">
                     <option value="" disabled selected>Dish type:</option>
