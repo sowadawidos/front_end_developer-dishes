@@ -1,9 +1,9 @@
 # Technology
 - HTML
 - SCSS
-- REACT
+- JavaScript (ES6)
+- React
 - NPM
-- REST API
 
 # Available Scripts
 
