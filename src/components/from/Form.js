@@ -63,7 +63,7 @@ export const Form = () => {
         event.preventDefault();
 
         if (!inputs.name) {
-            setErrors(prev => [...prev, "name"])
+            setErrors(prev => [...prev, "dish name"])
         }
         if (!inputs.preparation_time) {
             setErrors(prev => [...prev, "preparation time"])
@@ -121,9 +121,11 @@ export const Form = () => {
     return (
         <>
             <form onSubmit={handleSubmit} className="form">
-                <input type="text" value={inputs.name} name="name" onChange={handleInputs} placeholder="Name:"/>
-                <input type="time" defaultValue={"00:00:00"} name="preparation_time" onChange={handleInputs}
-                       placeholder="Preparation time:" step="1"/>
+                <input type="text" value={inputs.name} name="name" onChange={handleInputs} placeholder="Dish name:"/>
+                <label>
+                    Preparation time:
+                    <input type="time" defaultValue={"00:00:00"} name="preparation_time" onChange={handleInputs} step="1"/>
+                </label>
                 <select value={inputs.type} onChange={handleInputs} name="type">
                     <option value="" disabled selected>Dish type:</option>
                     <option value="pizza">Pizza</option>
