@@ -6,7 +6,7 @@
 - npm
 - RWD
 
-# Available Scripts
+# Project setup
 
 In the project directory, you can run in terminal:
 
